@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Nombre - Analista de Datos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #06d6a0;
+            --accent-color: #ef476f;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --text-color: #334155;
+            --text-light: #ffffff;
+            --card-bg: #ffffff;
+            --font-main: 'Inter', sans-serif;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s ease;
+            --border-radius: 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-light);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 0.85rem;
+        }
+
+        /* Header y Navegación */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            color: var(--dark-color);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background-color: var(--dark-color);
+            margin: 4px 0;
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(6, 214, 160, 0.8)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            color: var(--text-light);
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        /* Sobre Mí */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-img {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-img img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid transparent;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) border-box;
+            box-shadow: var(--shadow);
+        }
+
+        .about-text {
+            flex: 2;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .cv-download {
+            margin-top: 25px;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .cv-download h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+            font-size: 1.3rem;
+        }
+
+        /* Habilidades */
+        .skills-section {
+            background-color: #f1f5f9;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            padding: 25px 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            border-top: 3px solid var(--primary-color);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .skill-icon {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 12px;
+            color: var(--dark-color);
+            font-size: 1.2rem;
+        }
+
+        /* Certificaciones */
+        .certifications-section {
+            background: linear-gradient(135deg, var(--dark-color), #0f172a);
+            color: var(--text-light);
+        }
+
+        .certifications-section .section-title {
+            color: var(--text-light);
+        }
+
+        .certifications-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .certification-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .certification-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .certification-card h3 {
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
+        /* Cursos */
+        .courses-section {
+            background-color: #f1f5f9;
+        }
+
+        .courses-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .course-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .course-header {
+            padding: 18px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-light);
+        }
+
+        .course-header h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .course-body {
+            padding: 20px;
+        }
+
+        .course-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            color: var(--text-color);
+        }
+
+        .course-description {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        /* Proyectos */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .project-img {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.05);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+            font-size: 1.2rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 12px 0;
+        }
+
+        .project-tag {
+            background: #e2e8f0;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Footer Compacto */
+        .compact-footer {
+            background: var(--dark-color);
+            color: var(--text-light);
+            padding: 40px 0 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 15px 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .contact-icon {
+            color: var(--secondary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            display: inline-block;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+            
+            .about-content {
+                gap: 30px;
+            }
+            
+            .about-img img {
+                width: 240px;
+                height: 240px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: var(--card-bg);
+                padding: 20px;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 12px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 5px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -5px);
+            }
+
+            .hero {
+                height: 75vh;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .projects-container, .courses-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                gap: 20px;
+            }
+            
+            .footer-contact {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section {
+                padding: 50px 0;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 30px;
+            }
+            
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .about-img img {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .project-links {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- =========================== -->
+    <!-- HEADER Y NAVEGACIÓN -->
+    <!-- =========================== -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <!-- CAMBIA "Tu Nombre" por tu nombre real -->
+                <div class="logo">Martin González</div>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#sobre-mi">Sobre Mí</a></li>
+                    <li><a href="#habilidades">Habilidades</a></li>
+                    <li><a href="#certificaciones">Certificaciones</a></li>
+                    <li><a href="#cursos">Cursos</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- =========================== -->
+    <!-- SECCIÓN HERO/INICIO -->
+    <!-- =========================== -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <!-- CAMBIA el título si quieres -->
+                <h1>Analista de Datos & BI</h1>
+                <!-- CAMBIA el subtítulo si quieres -->
+                <p>Transformando datos complejos en decisiones estratégicas con Excel, Power BI, Python y SQL</p>
+                <div class="hero-btns">
+                    <a href="#proyectos" class="btn">
+                        <i class="fas fa-rocket"></i> Ver Proyectos
+                    </a>
+                    <a href="assets/documents/cv.pdf" class="btn btn-outline" download>
+                        <i class="fas fa-download"></i> Descargar CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================== -->
+    <!-- SECCIÓN SOBRE MÍ -->
+    <!-- =========================== -->
+    <section id="sobre-mi" class="section">
+        <div class="container">
+            <h2 class="section-title">Sobre Mí</h2>
+            <div class="about-content">
+                <div class="about-img">
+                    <!-- 
+                    CAMBIA ESTA LÍNEA: 
+                    Reemplaza la URL con tu foto: "assets/images/foto-perfil.jpg" 
+                    -->
+                    <img src="assets/images/foto-perfil.jpg" alt="Martin González">
+                </div>
+                <div class="about-text">
+                    <!-- 
+                    CAMBIA ESTOS PÁRRAFOS: 
+                    Escribe tu descripción personal, educación, experiencia, etc.
+                    -->
+                    <p>Soy Ingeniero en Sistemas y Computación egresado de [Nombre de tu Universidad], con certificación profesional en Google Data Analytics. Mi pasión es transformar datos complejos en información valiosa que impulse la toma de decisiones estratégicas.</p>
+                    <p>Cuento con sólidos conocimientos en Excel, Power BI, SQL, Looker Studio, Python y Tableau, y he completado diversos cursos especializados en análisis de datos, transformación de datos con Power Query y visualización de datos con Python.</p>
+                    
+                    <!-- 
+                    SECCIÓN DESCARGAR CV 
+                    CAMBIA el enlace "assets/documents/tu-cv.pdf" por la ruta real de tu CV
+                    -->
+                    <div class="cv-download">
+                        <h3>¿Interesado en mi perfil?</h3>
+                        <p>Descarga mi CV para conocer más detalles sobre mi formación y experiencia</p>
+                        <a href="assets/documents/cv.pdf" class="btn btn-small" download>
+                            <i class="fas fa-download"></i> Descargar CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================== -->
+    <!-- SECCIÓN HABILIDADES -->
+    <!-- =========================== -->
+    <section id="habilidades" class="section skills-section">
+        <div class="container">
+            <h2 class="section-title">Habilidades Técnicas</h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Visualización</h3>
+                    <p>Power BI, Tableau, Looker Studio, Excel Avanzado</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <h3>Análisis</h3>
+                    <p>Python (Pandas, NumPy), SQL, Excel, Análisis Estadístico</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Business Intelligence</h3>
+                    <p>Dashboards, KPIs, Reportes Automatizados, ETL</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-tools"></i></div>
+                    <h3>Herramientas</h3>
+                    <p>Power Query, Google Sheets, Git, Jupyter Notebooks</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================== -->
+    <!-- SECCIÓN CERTIFICACIONES -->
+    <!-- =========================== -->
+    <section id="certificaciones" class="section certifications-section">
+        <div class="container">
+            <h2 class="section-title">Certificaciones</h2>
+            <div class="certifications-container">
+                <!-- 
+                CERTIFICACIÓN GOOGLE DATA ANALYTICS
+                CAMBIA el enlace # por tu enlace real de Credly
+                -->
+                <div class="certification-card">
+                    <div class="certification-icon"><i class="fab fa-google"></i></div>
+                    <h3>Google Data Analytics</h3>
+                    <p>Certificación profesional en análisis de datos otorgada por Google</p>
+                    <a href="https://www.credly.com/users/martin-giovanni-gonzalez-barrera/badges#credly" class="btn btn-small" style="margin-top: 15px;">
+                        <i class="fas fa-external-link-alt"></i> Ver Credencial
+                    </a>
+                </div>
+                
+                <!-- 
+                AGREGA MÁS CERTIFICACIONES SI TIENES
+                Copia y pega este bloque para cada certificación adicional
+                -->
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================== -->
+    <!-- SECCIÓN CURSOS -->
+    <!-- =========================== -->
+    <section id="cursos" class="section courses-section">
+        <div class="container">
+            <h2 class="section-title">Cursos Realizados</h2>
+            <div class="courses-container">
+                <!-- 
+                CURSO 1 - MODIFICA ESTE BLOQUE
+                -->
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3>Análisis de Datos con Excel</h3>
+                        <p>Udemy</p>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-info">
+                            <span><i class="far fa-clock"></i> 9.5 horas</span>
+                            <span><i class="fas fa-calendar"></i> 2025</span>
+                        </div>
+                        <p class="course-description">Curso especializado en análisis de datos utilizando Excel avanzado, funciones estadísticas y tablas dinámicas.</p>
+                        <!-- CAMBIA el enlace # por tu enlace real del certificado -->
+                        <a href="assets/documents/certificado-excel.pdf" class="btn btn-outline btn-small">
+                            <i class="fas fa-certificate"></i> Ver Certificado
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 
+                CURSO 2 - MODIFICA ESTE BLOQUE
+                -->
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3>Transformación con Power Query</h3>
+                        <p>Udemy</p>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-info">
+                            <span><i class="far fa-clock"></i> 15 horas</span>
+                            <span><i class="fas fa-calendar"></i> 2023</span>
+                        </div>
+                        <p class="course-description">Aprendizaje de técnicas de ETL con Power Query para limpieza, transformación y preparación de datos.</p>
+                        <!-- CAMBIA el enlace # por tu enlace real del certificado -->
+                        <a href="#" class="btn btn-outline btn-small">
+                            <i class="fas fa-certificate"></i> Ver Certificado
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 
+                CURSO 3 - MODIFICA ESTE BLOQUE
+                -->
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3>Visualización con Python</h3>
+                        <p>Udemy</p>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-info">
+                            <span><i class="far fa-clock"></i> 30 horas</span>
+                            <span><i class="fas fa-calendar"></i> 2023</span>
+                        </div>
+                        <p class="course-description">Curso completo de análisis de datos y creación de visualizaciones utilizando Python y sus librerías.</p>
+                        <!-- CAMBIA el enlace # por tu enlace real del certificado -->
+                        <a href="#" class="btn btn-outline btn-small">
+                            <i class="fas fa-certificate"></i> Ver Certificado
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 
+                PARA AGREGAR MÁS CURSOS:
+                Copia y pega este bloque completo y modifica la información
+                -->
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3>Nombre del Curso</h3>
+                        <p>Plataforma</p>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-info">
+                            <span><i class="far fa-clock"></i> Duración</span>
+                            <span><i class="fas fa-calendar"></i> Año</span>
+                        </div>
+                        <p class="course-description">Descripción breve del curso y lo que aprendiste.</p>
+                        <a href="#" class="btn btn-outline btn-small">
+                            <i class="fas fa-certificate"></i> Ver Certificado
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================== -->
+    <!-- SECCIÓN PROYECTOS -->
+    <!-- =========================== -->
+    <section id="proyectos" class="section">
+        <div class="container">
+            <h2 class="section-title">Proyectos Destacados</h2>
+            <div class="projects-container">
+                
+                <!-- 
+                PROYECTO 1 - MODIFICA ESTE BLOQUE COMPLETO
+                -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <!-- CAMBIA la imagen por tu proyecto: "assets/images/proyectos/proyecto1.jpg" -->
+                        <img src="assets/images/proyectos/proyecto1.jpg" alt="Dashboard de Ventas">
+                        <div class="project-overlay">
+                            <!-- CAMBIA el enlace # por tu enlace real -->
+                            <a href="https://docs.google.com/spreadsheets/d/1HJzQsqpW_l3Bc6WSg1HIhjbEpndY_ReP/edit?usp=sharing&ouid=114282823337006962805&rtpof=true&sd=true" class="btn btn-outline btn-small">Ver Detalles</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <!-- CAMBIA el título del proyecto -->
+                        <h3>Análisis de Ventas</h3>
+                        <!-- CAMBIA la descripción del proyecto -->
+                        <p>Dashboard interactivo en Power BI para análisis de ventas y tendencias con segmentación por región.</p>
+                        <!-- CAMBIA las tecnologías usadas -->
+                        <div class="project-tags">
+                            <span class="project-tag">Power BI</span>
+                            <span class="project-tag">Excel</span>
+                            <span class="project-tag">SQL</span>
+                        </div>
+                        <div class="project-links">
+                            <!-- CAMBIA los enlaces # por tus enlaces reales -->
+                            <a href="https://docs.google.com/spreadsheets/d/1HJzQsqpW_l3Bc6WSg1HIhjbEpndY_ReP/edit?usp=sharing&ouid=114282823337006962805&rtpof=true&sd=true" class="btn btn-small">Ver Proyecto</a>
+                            <a href="https://docs.google.com/spreadsheets/d/1HJzQsqpW_l3Bc6WSg1HIhjbEpndY_ReP/edit?usp=sharing&ouid=114282823337006962805&rtpof=true&sd=true" class="btn btn-outline btn-small">Documentación</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 
+                PROYECTO 2 - MODIFICA ESTE BLOQUE COMPLETO
+                -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <!-- CAMBIA la imagen por tu proyecto: "assets/images/proyectos/proyecto2.jpg" -->
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Análisis E-commerce">
+                        <div class="project-overlay">
+                            <!-- CAMBIA el enlace # por tu enlace real -->
+                            <a href="#" class="btn btn-outline btn-small">Ver Detalles</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <!-- CAMBIA el título del proyecto -->
+                        <h3>Análisis de E-commerce</h3>
+                        <!-- CAMBIA la descripción del proyecto -->
+                        <p>Análisis completo de datos de e-commerce usando Python y Tableau para identificar patrones de compra.</p>
+                        <!-- CAMBIA las tecnologías usadas -->
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Tableau</span>
+                            <span class="project-tag">Pandas</span>
+                        </div>
+                        <div class="project-links">
+                            <!-- CAMBIA los enlaces # por tus enlaces reales -->
+                            <a href="#" class="btn btn-small">Ver Proyecto</a>
+                            <a href="#" class="btn btn-outline btn-small">Código</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 
+                PROYECTO 3 - MODIFICA ESTE BLOQUE COMPLETO
+                -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <!-- CAMBIA la imagen por tu proyecto: "assets/images/proyectos/proyecto3.jpg" -->
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Dashboard RRHH">
+                        <div class="project-overlay">
+                            <!-- CAMBIA el enlace # por tu enlace real -->
+                            <a href="#" class="btn btn-outline btn-small">Ver Detalles</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <!-- CAMBIA el título del proyecto -->
+                        <h3>Dashboard de RRHH</h3>
+                        <!-- CAMBIA la descripción del proyecto -->
+                        <p>Dashboard en Looker Studio para análisis de indicadores de recursos humanos.</p>
+                        <!-- CAMBIA las tecnologías usadas -->
+                        <div class="project-tags">
+                            <span class="project-tag">Looker Studio</span>
+                            <span class="project-tag">Google Sheets</span>
+                            <span class="project-tag">Data Studio</span>
+                        </div>
+                        <div class="project-links">
+                            <!-- CAMBIA los enlaces # por tus enlaces reales -->
+                            <a href="#" class="btn btn-small">Ver Proyecto</a>
+                            <a href="#" class="btn btn-outline btn-small">Metodología</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================== -->
+    <!-- FOOTER COMPACTO -->
+    <!-- =========================== -->
+    <footer class="compact-footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- CAMBIA "Tu Nombre" por tu nombre real -->
+                <div class="footer-logo">Martin González</div>
+                
+                <div class="footer-contact">
+                    <!-- 
+                    CAMBIA tu información de contacto aquí
+                    -->
+                    <div class="contact-item">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <span>martingiova1994@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone contact-icon"></i>
+                        <span>+503 7117-4748</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <span>San Salvador, El Salvador</span>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <!-- 
+                    CAMBIA los enlaces # por tus redes sociales reales
+                    -->
+                    <a href="https://www.linkedin.com/in/martin-giovanni-gonzalez-barrera" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/MartinGioG" class="social-link"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <!-- CAMBIA "Tu Nombre" por tu nombre real -->
+                <p>&copy; 2025 Martin González. Analista de Datos.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menú hamburguesa para dispositivos móviles
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
+        // Efecto de scroll suave para los enlaces de navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Efecto de header al hacer scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
