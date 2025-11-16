@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tu Nombre - Analista de Datos</title>
+    <title>Martin González - Analista de Datos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -398,6 +398,24 @@
             font-size: 0.9rem;
         }
 
+        .course-technologies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 12px 0;
+        }
+
+        .tech-tag {
+            background: #e2e8f0;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
         /* Proyectos */
         .projects-container {
             display: grid;
@@ -675,13 +693,10 @@
     </style>
 </head>
 <body>
-    <!-- =========================== -->
     <!-- HEADER Y NAVEGACIÓN -->
-    <!-- =========================== -->
     <header>
         <div class="container">
             <nav class="navbar">
-                <!-- CAMBIA "Tu Nombre" por tu nombre real -->
                 <div class="logo">Martin González</div>
                 <ul class="nav-links">
                     <li><a href="#inicio">Inicio</a></li>
@@ -700,15 +715,11 @@
         </div>
     </header>
 
-    <!-- =========================== -->
     <!-- SECCIÓN HERO/INICIO -->
-    <!-- =========================== -->
     <section id="inicio" class="hero">
         <div class="container">
             <div class="hero-content">
-                <!-- CAMBIA el título si quieres -->
                 <h1>Analista de Datos & BI</h1>
-                <!-- CAMBIA el subtítulo si quieres -->
                 <p>Transformando datos complejos en decisiones estratégicas con Excel, Power BI, Python y SQL</p>
                 <div class="hero-btns">
                     <a href="#proyectos" class="btn">
@@ -722,32 +733,18 @@
         </div>
     </section>
 
-    <!-- =========================== -->
     <!-- SECCIÓN SOBRE MÍ -->
-    <!-- =========================== -->
     <section id="sobre-mi" class="section">
         <div class="container">
             <h2 class="section-title">Sobre Mí</h2>
             <div class="about-content">
                 <div class="about-img">
-                    <!-- 
-                    CAMBIA ESTA LÍNEA: 
-                    Reemplaza la URL con tu foto: "assets/images/foto-perfil.jpg" 
-                    -->
                     <img src="assets/images/foto-perfil.jpg" alt="Martin González">
                 </div>
                 <div class="about-text">
-                    <!-- 
-                    CAMBIA ESTOS PÁRRAFOS: 
-                    Escribe tu descripción personal, educación, experiencia, etc.
-                    -->
                     <p>Soy Ingeniero en Sistemas y Computación egresado de [Nombre de tu Universidad], con certificación profesional en Google Data Analytics. Mi pasión es transformar datos complejos en información valiosa que impulse la toma de decisiones estratégicas.</p>
                     <p>Cuento con sólidos conocimientos en Excel, Power BI, SQL, Looker Studio, Python y Tableau, y he completado diversos cursos especializados en análisis de datos, transformación de datos con Power Query y visualización de datos con Python.</p>
                     
-                    <!-- 
-                    SECCIÓN DESCARGAR CV 
-                    CAMBIA el enlace "assets/documents/tu-cv.pdf" por la ruta real de tu CV
-                    -->
                     <div class="cv-download">
                         <h3>¿Interesado en mi perfil?</h3>
                         <p>Descarga mi CV para conocer más detalles sobre mi formación y experiencia</p>
@@ -760,9 +757,7 @@
         </div>
     </section>
 
-    <!-- =========================== -->
     <!-- SECCIÓN HABILIDADES -->
-    <!-- =========================== -->
     <section id="habilidades" class="section skills-section">
         <div class="container">
             <h2 class="section-title">Habilidades Técnicas</h2>
@@ -791,17 +786,11 @@
         </div>
     </section>
 
-    <!-- =========================== -->
     <!-- SECCIÓN CERTIFICACIONES -->
-    <!-- =========================== -->
     <section id="certificaciones" class="section certifications-section">
         <div class="container">
             <h2 class="section-title">Certificaciones</h2>
             <div class="certifications-container">
-                <!-- 
-                CERTIFICACIÓN GOOGLE DATA ANALYTICS
-                CAMBIA el enlace # por tu enlace real de Credly
-                -->
                 <div class="certification-card">
                     <div class="certification-icon"><i class="fab fa-google"></i></div>
                     <h3>Google Data Analytics</h3>
@@ -810,29 +799,19 @@
                         <i class="fas fa-external-link-alt"></i> Ver Credencial
                     </a>
                 </div>
-                
-                <!-- 
-                AGREGA MÁS CERTIFICACIONES SI TIENES
-                Copia y pega este bloque para cada certificación adicional
-                -->
-                
             </div>
         </div>
     </section>
 
-    <!-- =========================== -->
     <!-- SECCIÓN CURSOS -->
-    <!-- =========================== -->
     <section id="cursos" class="section courses-section">
         <div class="container">
             <h2 class="section-title">Cursos Realizados</h2>
             <div class="courses-container">
-                <!-- 
-                CURSO 1 - MODIFICA ESTE BLOQUE
-                -->
+                <!-- CURSO 1 -->
                 <div class="course-card">
                     <div class="course-header">
-                        <h3>Análisis de Datos con Excel</h3>
+                        <h3><i class="fas fa-file-excel"></i> Análisis de Datos con Excel</h3>
                         <p>Udemy</p>
                     </div>
                     <div class="course-body">
@@ -841,40 +820,21 @@
                             <span><i class="fas fa-calendar"></i> 2025</span>
                         </div>
                         <p class="course-description">Curso especializado en análisis de datos utilizando Excel avanzado, funciones estadísticas y tablas dinámicas.</p>
-                        <!-- CAMBIA el enlace # por tu enlace real del certificado -->
+                        <div class="course-technologies">
+                            <span class="tech-tag"><i class="fas fa-file-excel"></i> Excel</span>
+                            <span class="tech-tag"><i class="fas fa-bolt"></i> Power Query</span>
+                            <span class="tech-tag"><i class="fas fa-chart-bar"></i> Power BI</span>
+                        </div>
                         <a href="assets/documents/certificado-excel.pdf" class="btn btn-outline btn-small">
                             <i class="fas fa-certificate"></i> Ver Certificado
                         </a>
                     </div>
                 </div>
                 
-                <!-- 
-                CURSO 2 - MODIFICA ESTE BLOQUE
-                -->
+                <!-- CURSO 2 -->
                 <div class="course-card">
                     <div class="course-header">
-                        <h3>Transformación con Power Query</h3>
-                        <p>Udemy</p>
-                    </div>
-                    <div class="course-body">
-                        <div class="course-info">
-                            <span><i class="far fa-clock"></i> 15 horas</span>
-                            <span><i class="fas fa-calendar"></i> 2023</span>
-                        </div>
-                        <p class="course-description">Aprendizaje de técnicas de ETL con Power Query para limpieza, transformación y preparación de datos.</p>
-                        <!-- CAMBIA el enlace # por tu enlace real del certificado -->
-                        <a href="#" class="btn btn-outline btn-small">
-                            <i class="fas fa-certificate"></i> Ver Certificado
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- 
-                CURSO 3 - MODIFICA ESTE BLOQUE
-                -->
-                <div class="course-card">
-                    <div class="course-header">
-                        <h3>Visualización con Python</h3>
+                        <h3><i class="fab fa-python"></i> Visualización con Python</h3>
                         <p>Udemy</p>
                     </div>
                     <div class="course-body">
@@ -883,28 +843,34 @@
                             <span><i class="fas fa-calendar"></i> 2023</span>
                         </div>
                         <p class="course-description">Curso completo de análisis de datos y creación de visualizaciones utilizando Python y sus librerías.</p>
-                        <!-- CAMBIA el enlace # por tu enlace real del certificado -->
+                        <div class="course-technologies">
+                            <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+                            <span class="tech-tag"><i class="fas fa-chart-line"></i> Statistics</span>
+                            <span class="tech-tag"><i class="fas fa-brain"></i> Machine Learning</span>
+                        </div>
                         <a href="#" class="btn btn-outline btn-small">
                             <i class="fas fa-certificate"></i> Ver Certificado
                         </a>
                     </div>
                 </div>
                 
-                <!-- 
-                PARA AGREGAR MÁS CURSOS:
-                Copia y pega este bloque completo y modifica la información
-                -->
+                <!-- CURSO 3 -->
                 <div class="course-card">
                     <div class="course-header">
-                        <h3>Nombre del Curso</h3>
-                        <p>Plataforma</p>
+                        <h3><i class="fas fa-chart-pie"></i> Tableau para Visualización</h3>
+                        <p>Udemy</p>
                     </div>
                     <div class="course-body">
                         <div class="course-info">
-                            <span><i class="far fa-clock"></i> Duración</span>
-                            <span><i class="fas fa-calendar"></i> Año</span>
+                            <span><i class="far fa-clock"></i> 15 horas</span>
+                            <span><i class="fas fa-calendar"></i> 2023</span>
                         </div>
-                        <p class="course-description">Descripción breve del curso y lo que aprendiste.</p>
+                        <p class="course-description">Aprendizaje de técnicas de ETL con Power Query para limpieza, transformación y preparación de datos.</p>
+                        <div class="course-technologies">
+                            <span class="tech-tag"><i class="fas fa-chart-pie"></i> Tableau</span>
+                            <span class="tech-tag"><i class="fab fa-google"></i> Looker Studio</span>
+                            <span class="tech-tag"><i class="fas fa-database"></i> SQL</span>
+                        </div>
                         <a href="#" class="btn btn-outline btn-small">
                             <i class="fas fa-certificate"></i> Ver Certificado
                         </a>
@@ -914,103 +880,76 @@
         </div>
     </section>
 
-    <!-- =========================== -->
     <!-- SECCIÓN PROYECTOS -->
-    <!-- =========================== -->
     <section id="proyectos" class="section">
         <div class="container">
             <h2 class="section-title">Proyectos Destacados</h2>
             <div class="projects-container">
-                
-                <!-- 
-                PROYECTO 1 - MODIFICA ESTE BLOQUE COMPLETO
-                -->
+                <!-- PROYECTO 1 - EXCEL -->
                 <div class="project-card">
                     <div class="project-img">
-                        <!-- CAMBIA la imagen por tu proyecto: "assets/images/proyectos/proyecto1.jpg" -->
-                        <img src="assets/images/Proyectos/proyecto1.jpg" alt="Dashboard de Ventas">
+                        <img src="assets/images/Proyectos/proyecto1.png" alt="Dashboard de Ventas">
                         <div class="project-overlay">
-                            <!-- CAMBIA el enlace # por tu enlace real -->
-                            <a href="https://docs.google.com/spreadsheets/d/1HJzQsqpW_l3Bc6WSg1HIhjbEpndY_ReP/edit?usp=sharing&ouid=114282823337006962805&rtpof=true&sd=true" class="btn btn-outline btn-small">Ver Detalles</a>
+                            <a href="proyecto-excel.html" class="btn btn-outline btn-small">Ver Detalles</a>
                         </div>
                     </div>
                     <div class="project-info">
-                        <!-- CAMBIA el título del proyecto -->
-                        <h3>Análisis de Ventas</h3>
-                        <!-- CAMBIA la descripción del proyecto -->
-                        <p>Dashboard interactivo en Power BI para análisis de ventas y tendencias con segmentación por región.</p>
-                        <!-- CAMBIA las tecnologías usadas -->
+                        <h3>Análisis de Ventas - Excel</h3>
+                        <p>Dashboard interactivo en Excel para análisis de ventas y tendencias con segmentación por región.</p>
                         <div class="project-tags">
-                            <span class="project-tag">Power BI</span>
-                            <span class="project-tag">Excel</span>
-                            <span class="project-tag">SQL</span>
+                            <span class="project-tag"><i class="fas fa-file-excel"></i> Excel</span>
+                            <span class="project-tag"><i class="fas fa-bolt"></i> Power Query</span>
+                            <span class="project-tag"><i class="fas fa-chart-bar"></i> Dashboard</span>
                         </div>
                         <div class="project-links">
-                            <!-- CAMBIA los enlaces # por tus enlaces reales -->
-                            <a href="https://docs.google.com/spreadsheets/d/1HJzQsqpW_l3Bc6WSg1HIhjbEpndY_ReP/edit?usp=sharing&ouid=114282823337006962805&rtpof=true&sd=true" class="btn btn-small">Ver Proyecto</a>
-                            <a href="https://docs.google.com/spreadsheets/d/1HJzQsqpW_l3Bc6WSg1HIhjbEpndY_ReP/edit?usp=sharing&ouid=114282823337006962805&rtpof=true&sd=true" class="btn btn-outline btn-small">Documentación</a>
+                            <a href="proyecto-excel.html" class="btn btn-small">Ver Proyecto</a>
+                            <a href="https://unabedusv-my.sharepoint.com/:x:/g/personal/gb0988022021_unab_edu_sv/IQCqVkXLCKsiQYLS3FJkzCnVAf69esVkD_p6vUsF7FShvr8?e=m0MNB1&nav=MTVfe0FDRDQ2QTkwLTc1RDgtNEU1Qy05ODU3LUFFNUVCOTgxODk1NH0" class="btn btn-outline btn-small" target="_blank">Dashboard Live</a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- 
-                PROYECTO 2 - MODIFICA ESTE BLOQUE COMPLETO
-                -->
+                <!-- PROYECTO 2 - POWER BI -->
                 <div class="project-card">
                     <div class="project-img">
-                        <!-- CAMBIA la imagen por tu proyecto: "assets/images/proyectos/proyecto2.jpg" -->
-                        <img src="assets/images/Proyectos/proyecto2.png" alt="Dashboard de Ventas">
+                        <img src="assets/images/Proyectos/proyecto2.png" alt="Dashboard Power BI">
                         <div class="project-overlay">
-                            <!-- CAMBIA el enlace # por tu enlace real -->
-                            <a href="#" class="btn btn-outline btn-small">Ver Detalles</a>
+                            <a href="proyecto-powerbi.html" class="btn btn-outline btn-small">Ver Detalles</a>
                         </div>
                     </div>
                     <div class="project-info">
-                        <!-- CAMBIA el título del proyecto -->
-                        <h3>Análisis de E-commerce</h3>
-                        <!-- CAMBIA la descripción del proyecto -->
-                        <p>Análisis completo de datos de e-commerce usando Python y Tableau para identificar patrones de compra.</p>
-                        <!-- CAMBIA las tecnologías usadas -->
+                        <h3>E-commerce Analytics - Power BI</h3>
+                        <p>Análisis completo de datos de e-commerce usando Power BI para identificar patrones de compra.</p>
                         <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Tableau</span>
-                            <span class="project-tag">Pandas</span>
+                            <span class="project-tag"><i class="fas fa-chart-bar"></i> Power BI</span>
+                            <span class="project-tag"><i class="fas fa-database"></i> SQL</span>
+                            <span class="project-tag"><i class="fas fa-bolt"></i> ETL</span>
                         </div>
                         <div class="project-links">
-                            <!-- CAMBIA los enlaces # por tus enlaces reales -->
-                            <a href="#" class="btn btn-small">Ver Proyecto</a>
-                            <a href="#" class="btn btn-outline btn-small">Código</a>
+                            <a href="proyecto-powerbi.html" class="btn btn-small">Ver Proyecto</a>
+                            <a href="#" class="btn btn-outline btn-small" target="_blank">Dashboard Live</a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- 
-                PROYECTO 3 - MODIFICA ESTE BLOQUE COMPLETO
-                -->
+                <!-- PROYECTO 3 - PYTHON -->
                 <div class="project-card">
                     <div class="project-img">
-                        <!-- CAMBIA la imagen por tu proyecto: "assets/images/proyectos/proyecto3.jpg" -->
                         <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Dashboard RRHH">
                         <div class="project-overlay">
-                            <!-- CAMBIA el enlace # por tu enlace real -->
-                            <a href="#" class="btn btn-outline btn-small">Ver Detalles</a>
+                            <a href="proyecto-python.html" class="btn btn-outline btn-small">Ver Detalles</a>
                         </div>
                     </div>
                     <div class="project-info">
-                        <!-- CAMBIA el título del proyecto -->
-                        <h3>Dashboard de RRHH</h3>
-                        <!-- CAMBIA la descripción del proyecto -->
-                        <p>Dashboard en Looker Studio para análisis de indicadores de recursos humanos.</p>
-                        <!-- CAMBIA las tecnologías usadas -->
+                        <h3>Predicción de Ventas - Python</h3>
+                        <p>Modelo predictivo para forecast de ventas utilizando Python y Machine Learning.</p>
                         <div class="project-tags">
-                            <span class="project-tag">Looker Studio</span>
-                            <span class="project-tag">Google Sheets</span>
-                            <span class="project-tag">Data Studio</span>
+                            <span class="project-tag"><i class="fab fa-python"></i> Python</span>
+                            <span class="project-tag"><i class="fas fa-brain"></i> Machine Learning</span>
+                            <span class="project-tag"><i class="fas fa-chart-line"></i> Forecasting</span>
                         </div>
                         <div class="project-links">
-                            <!-- CAMBIA los enlaces # por tus enlaces reales -->
-                            <a href="#" class="btn btn-small">Ver Proyecto</a>
-                            <a href="#" class="btn btn-outline btn-small">Metodología</a>
+                            <a href="proyecto-python.html" class="btn btn-small">Ver Proyecto</a>
+                            <a href="#" class="btn btn-outline btn-small" target="_blank">Código</a>
                         </div>
                     </div>
                 </div>
@@ -1018,19 +957,13 @@
         </div>
     </section>
 
-    <!-- =========================== -->
     <!-- FOOTER COMPACTO -->
-    <!-- =========================== -->
     <footer class="compact-footer">
         <div class="container">
             <div class="footer-content">
-                <!-- CAMBIA "Tu Nombre" por tu nombre real -->
                 <div class="footer-logo">Martin González</div>
                 
                 <div class="footer-contact">
-                    <!-- 
-                    CAMBIA tu información de contacto aquí
-                    -->
                     <div class="contact-item">
                         <i class="fas fa-envelope contact-icon"></i>
                         <span>martingiova1994@gmail.com</span>
@@ -1046,16 +979,12 @@
                 </div>
                 
                 <div class="social-links">
-                    <!-- 
-                    CAMBIA los enlaces # por tus redes sociales reales
-                    -->
                     <a href="https://www.linkedin.com/in/martin-giovanni-gonzalez-barrera" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://github.com/MartinGioG" class="social-link"><i class="fab fa-github"></i></a>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <!-- CAMBIA "Tu Nombre" por tu nombre real -->
                 <p>&copy; 2025 Martin González. Analista de Datos.</p>
             </div>
         </div>
@@ -1106,6 +1035,4 @@
         });
     </script>
 </body>
-
 </html>
-

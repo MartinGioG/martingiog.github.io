@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Excel Online | Martin González</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #06d6a0;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --text-color: #334155;
+            --text-light: #ffffff;
+            --font-main: 'Inter', sans-serif;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+            --border-radius: 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 20px 0;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .back-button:hover {
+            transform: translateX(-5px);
+        }
+
+        .project-detail {
+            padding: 40px 0;
+        }
+
+        .project-hero {
+            background: linear-gradient(135deg, #217346, #28a745);
+            color: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+        }
+
+        .project-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .project-tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dashboard-container {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin: 30px 0;
+        }
+
+        .dashboard-iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 8px;
+            background: #f8f9fa;
+        }
+
+        .project-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .main-content {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .info-card h3 {
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-icon {
+            color: var(--secondary-color);
+            width: 20px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .tech-item {
+            background: #e2e8f0;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .project-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .dashboard-iframe {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html#proyectos" class="back-button">
+            <i class="fas fa-arrow-left"></i> Volver al Portafolio
+        </a>
+        
+        <div class="project-detail">
+            <div class="project-hero">
+                <h1>Análisis de Ventas - Dashboard Excel Online</h1>
+                <p>Dashboard interactivo desarrollado en Excel Utilizando Tablas Dinamicas para análisis de tendencias de ventas y segmentación por región</p>
+                <div class="project-tags">
+                    <span class="project-tag"><i class="fas fa-file-excel"></i> Excel</span>
+                    <span class="project-tag"><i class="fas fa-chart-bar"></i> Dashboard</span>
+                    <span class="project-tag"><i class="fas fa-database"></i> ETL</span>
+                </div>
+            </div>
+
+            <!-- Dashboard Incrustado de Excel Online -->
+            <div class="dashboard-container">
+                <h2><i class="fas fa-chart-bar"></i> Dashboard Interactivo</h2>
+                <p>Explora el dashboard haciendo clic en los diferentes filtros y elementos interactivos:</p>
+                
+                <!-- ⚠️ REEMPLAZA ESTA URL CON LA DE TU EXCEL ONLINE -->
+                        <style>
+                    .excel-wrapper {
+                        width: 100%;
+                        height: 850px; /* altura visible: puedes subirla a 900 o 1000 */
+                        overflow: hidden;
+                        position: relative;
+                        border-radius: 8px;
+                        background: #f8f9fa;
+                    }
+
+                    .excel-iframe {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        transform-origin: 0 0;
+                        transform: scale(0.65); /* 65% */
+                        width: calc(100% / 0.65);  /* El iframe real debe ser más grande para compensar */
+                        height: calc(100% / 0.65); /* Igual aquí */
+                        border: 0;
+                    }
+                </style>
+
+                <div class="excel-wrapper">
+                    <iframe 
+                        class="excel-iframe"
+                        src="https://unabedusv-my.sharepoint.com/personal/gb0988022021_unab_edu_sv/_layouts/15/Doc.aspx?sourcedoc={cb4556aa-ab08-4122-82d2-dc5264cc29d5}&action=embedview&wdAllowInteractivity=False&AllowTyping=True&wdHideGridlines=True"
+                        scrolling="no"
+                        frameborder="0">
+                    </iframe>
+                </div>
+
+
+                
+                <div style="text-align: center; margin-top: 15px;">
+                    <a href="https://unabedusv-my.sharepoint.com/:x:/g/personal/gb0988022021_unab_edu_sv/IQCqVkXLCKsiQYLS3FJkzCnVAf69esVkD_p6vUsF7FShvr8?e=IUJyGs&nav=MTVfe0FDRDQ2QTkwLTc1RDgtNEU1Qy05ODU3LUFFNUVCOTgxODk1NH0" 
+                       class="btn" 
+                       target="_blank"
+                       style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: #217346; color: white; text-decoration: none; border-radius: 5px;">
+                        <i class="fas fa-external-link-alt"></i> Abrir en Excel Online
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-content">
+                <div class="main-content">
+                    <h2><i class="fas fa-target"></i>Objetivo del Proyecto</h2>
+                    <p>Desarrollar un sistema de análisis integral que permita a la dirección comercial tomar decisiones basadas en datos sobre estrategias de ventas, distribución de recursos y optimización de inventario.</p>
+                    
+                    <h2><i class="fas fa-cogs"></i> Metodología</h2>
+                    <p>Utilicé un proceso ETL (Extract, Transform, Load) completo:</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-download feature-icon"></i> <strong>Extracción:</strong> Consolidación de datos desde archivos CSV</li>
+
+                        <li><i class="fas fa-sync-alt feature-icon"></i> <strong>Transformación:</strong> Limpieza y estandarización de datos usando Power Query</li>
+                        <li><i class="fas fa-database feature-icon"></i> <strong>Carga:</strong> Alimentación del modelo de datos para el análisis</li>
+                        <li><i class="fas fa-chart-line feature-icon"></i> <strong>Visualización:</strong> Creación de dashboards interactivos con tablas dinámicas y gráficos</li>
+                    </ul>
+
+                    <h2><i class="fas fa-chart-line"></i> Resultados Alcanzados</h2>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check feature-icon"></i> Identificación de patrones de venta estacionales</li>
+                        <li><i class="fas fa-check feature-icon"></i> Verificacion de ventas a lo largo del tiempo</li>
+                        <li><i class="fas fa-check feature-icon"></i> Segmentación efectiva de clientes por valor y potencial</li>
+                        <li><i class="fas fa-check feature-icon"></i> Analizar el total de envios por venta</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar">
+                    <div class="info-card">
+                        <h3><i class="fas fa-tools"></i> Stack Tecnológico</h3>
+                        <div class="tech-stack">
+                            <span class="tech-item"><i class="fas fa-file-excel"></i> Excel</span>
+                            <span class="tech-item"><i class="fas fa-chart-bar"></i> Power Pivot</span>
+                            <span class="tech-item"><i class="fas fa-table"></i> Tablas Dinámicas</span>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fas fa-feather"></i> Características</h3>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-sliders-h feature-icon"></i> Filtros interactivos</li>
+                            <li><i class="fas fa-sync feature-icon"></i> Actualización automática</li>
+                            <li><i class="fas fa-mobile-alt feature-icon"></i> Diseño responsive</li>
+                            <li><i class="fas fa-bolt feature-icon"></i> Tiempo real</li>
+                        </ul>
+                    </div>
+                  <!--
+                    <div class="info-card">
+                        <h3><i class="fas fa-download"></i> Recursos</h3>
+                        <ul class="feature-list">
+                            <li><a href="#" style="display: flex; align-items: center; gap: 8px; color: var(--primary-color); text-decoration: none;">
+                                <i class="fas fa-file-excel"></i> Descargar archivo Excel
+                            </a></li>
+                            <li><a href="#" style="display: flex; align-items: center; gap: 8px; color: var(--primary-color); text-decoration: none;">
+                                <i class="fas fa-book"></i> Documentación técnica
+                            </a></li>
+                            <li><a href="#" style="display: flex; align-items: center; gap: 8px; color: var(--primary-color); text-decoration: none;">
+                                <i class="fas fa-video"></i> Video explicativo
+                            </a></li>
+                        </ul>
+                    </div>
+                    -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
